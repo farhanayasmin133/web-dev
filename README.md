@@ -1,46 +1,18 @@
+# Author: Farhana Yasmin
+# About the Project
+A chatbot written in es6 and vs6 for twilio and testing on the web. The important files are index.js and playPoker.js. This code is heavily based on the sample from
+# <a href="https://github.com/rhildred/nodeAsyncGameBot" target="_blank">nodeAsyncGameBot</a>
+# Instructions
+* Open visual studio code
+* Clone the project from Git Hub repos
+* Open terminal in bash mode and type `npm install`
+* To start the project type `npm start` in the terminal
+* Open your web browser at localhost:3000 and enjoy!!!
+# Licence
+Please read `LICENSE.md` file carefully for licensing information. 
+This application uses GNU open source licensing used from https://www.gnu.org/licenses/gpl-3.0.en.html
 
-I got the user interface for the web from a student of mine, Pat Wilken.
+# Rational behind using open source
+The application used open source licensing so that other students can use it as an example for their very first Chat Bot application.
 
-A chatbot written in es6 and vs6 for twilio and testing on the web. The important files are index.js and OverAndUnder.js.
-
-This is a simple number guessing game. The difference between this and the other games is that it is asynchronous so that you can wait before sending a response. In the index we do the response in a callback:
-
-```
-    oGames[sFrom].makeAMove(sMessage, (aReply) =>{
-        res.setHeader('content-type', 'text/xml');
-        let sResponse = "<Response>";
-        for(let n = 0; n < aReply.length; n++){
-            sResponse += "<Message>";
-            sResponse += aReply[n];
-            sResponse += "</Message>";
-        }
-        res.end(sResponse + "</Response>");
-    
-    });
-
-
-```
-
-Then in our game we can send the response immediately:
-
-```
-    makeAMove(sInput, fCallback){
-        if(!this.nComputer){
-            this.makeANumber();
-            fCallback(["Welcome to Over and Unders", "Please guess a number between 1 and 100"]);
-            return;
-        }
-
-
-```
-or wait and send the response later:
-
-```
-        setTimeout(() => { 
-            fCallback([sReturn]); 
-        }, 3000);
-
-
-```
-Be careful with how long you wait. There is no load on your server while waiting but messaging apps like Kik require you to answer in 5 seconds.
 
